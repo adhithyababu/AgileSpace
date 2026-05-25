@@ -39,7 +39,7 @@ const Dashboard = () => {
     const fetchTasks = async () => {
         if (!activeWorkspace) return;
         try {
-            const res = await axios.get(`http://localhost:5000/api/tasks/workspace/${activeWorkspace._id}`);
+            const res = await axios.get(`https://agilespace-backend.onrender.com/api/tasks/workspace/${activeWorkspace._id}`);
             if (res.data.success) {
                 setTasks(res.data.data);
             }
