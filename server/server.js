@@ -15,7 +15,7 @@ connectDB(); // 👈 NEW: Server thudanguMbol thanne DB connect cheyyaan parayun
 const app = express();
 
 // Middleware 
-app.use(cors());
+app.use(cors()); // 👈 ബ്രാക്കറ്റിനുള്ളിൽ ഒന്നും കൊടുക്കണ്ട, കാലിയായി വിടുക!
 app.use(express.json()); // Backend-ilekk varunna JSON data vaayikkaan
 // 🗺️ API Routes
 app.use('/api/auth', authRoutes); // 👈 NEW: Auth route-ne server-lekk link cheyyunnu
