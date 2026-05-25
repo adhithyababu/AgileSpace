@@ -23,7 +23,7 @@ const Dashboard = () => {
     // 1. Fetch Workspaces
     const fetchWorkspaces = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/workspaces');
+            const res = await axios.get('https://agilespace-backend.onrender.com/api/workspaces');
             if (res.data.success) {
                 setWorkspaces(res.data.data);
                 if (res.data.data.length > 0 && !activeWorkspace) {
@@ -60,7 +60,7 @@ const Dashboard = () => {
     const handleCreateWorkspace = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/workspaces', { name: wsName, description: wsDesc });
+            const res = await axios.post('https://agilespace-backend.onrender.com/api/workspaces', { name: wsName, description: wsDesc });
             if (res.data.success) {
                 setWsName('');
                 setWsDesc('');
@@ -75,7 +75,7 @@ const Dashboard = () => {
     const handleCreateTask = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/tasks', {
+            const res = await axios.post('https://agilespace-backend.onrender.com/api/tasks', {
                 title: taskTitle,
                 description: taskDesc,
                 workspaceId: activeWorkspace._id
@@ -93,7 +93,7 @@ const Dashboard = () => {
     // 5. Update Task Status (Move Kanban)
     const moveTask = async (taskId, newStatus) => {
         try {
-            const res = await axios.put(`http://localhost:5000/api/tasks/${taskId}`, { status: newStatus });
+            const res = await axios.put(`https://agilespace-backend.onrender.com/api/tasks/${taskId}`, { status: newStatus });
             if (res.data.success) {
                 fetchTasks();
             }
@@ -106,7 +106,7 @@ const Dashboard = () => {
     const deleteTask = async (taskId) => {
         if (!window.confirm('Are you sure you want to delete this task?')) return;
         try {
-            const res = await axios.delete(`http://localhost:5000/api/tasks/${taskId}`);
+            const res = await axios.delete(`https://agilespace-backend.onrender.com/api/tasks/${taskId}`);
             if (res.data.success) {
                 fetchTasks();
             }
@@ -126,7 +126,7 @@ const Dashboard = () => {
     // 8. Save Edited Task (New 🔥)
     const saveEdit = async (taskId) => {
         try {
-            const res = await axios.put(`http://localhost:5000/api/tasks/${taskId}`, {
+            const res = await axios.put(`https://agilespace-backend.onrender.com/api/tasks/${taskId}`, {
                 title: editTitle,
                 description: editDesc
             });

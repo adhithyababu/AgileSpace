@@ -14,7 +14,7 @@ const Register = () => {
         setError('');
         setSuccess('');
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', { email, password });
+            const res = await axios.post('https://agilespace-backend.onrender.com/api/auth/register', { email, password });
             if (res.data.success) {
                 setSuccess('Registration Successful! Redirecting to login...');
                 setTimeout(() => {

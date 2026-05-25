@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
     }, [token]);
 
     const login = async (email, password) => {
-        const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+        const res = await axios.post('https://agilespace-backend.onrender.com/api/auth/login', { email, password });
         if (res.data.success) {
             setToken(res.data.token);
             setUser({ email }); // ബേസിക് യൂസർ ഡാറ്റ സെറ്റ് ചെയ്യുന്നു
